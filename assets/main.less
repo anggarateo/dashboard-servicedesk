@@ -1,0 +1,104 @@
+@import '@/assets/scrollbar.less';
+@import 'vue-select/dist/vue-select.css';
+@import '@vuepic/vue-datepicker/dist/main.css';
+@import 'vue-final-modal/style.css';
+@import 'vue3-easy-data-table/dist/style.css';
+@import '@vueform/toggle/themes/default.css';
+@import 'vue3-toastify/dist/index.css';
+@import 'vue3-carousel/dist/carousel.css';
+@import "@hennge/vue3-pagination/dist/vue3-pagination.css";
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  @apply text-neutral-600;
+}
+  
+// v-select
+.style-chooser#default .vs__dropdown-toggle,
+.style-chooser#default .vs__dropdown-menu { @apply border border-neutral-300 rounded-xl p-2; }
+.style-chooser#default .vs__dropdown-option--highlight { @apply bg-primary rounded-xl mx-1; }
+.style-chooser#default .vs__search::placeholder { @apply text-neutral-300; }
+
+.style-chooser#ticket .vs__dropdown-toggle,
+.style-chooser#ticket .vs__dropdown-menu { @apply border-none rounded-xl px-2 bg-primary-100 text-primary-500 font-medium; }
+.style-chooser#ticket .vs__selected { @apply text-primary-500 font-bold; }
+.style-chooser#ticket .vs__dropdown-menu { @apply border border-neutral-300 rounded-xl p-2; }
+.style-chooser#ticket .vs__dropdown-option--highlight { @apply bg-primary rounded-xl mx-1; }
+.style-chooser#ticket .vs__search::placeholder { @apply text-neutral-300; }
+
+.style-chooser#pagination .vs__dropdown-toggle,
+.style-chooser#pagination .vs__dropdown-menu { @apply border border-primary-500 rounded-xl p-1 text-primary-500 max-h-16 min-w-fit; }
+.style-chooser#pagination .vs__selected { @apply text-primary-500 font-medium; }
+// .style-chooser#pagination .vs__dropdown-menu { @apply border border-primary-500 rounded-xl p-2; }
+.style-chooser#pagination .vs__dropdown-option--highlight { @apply bg-primary rounded-xl mx-1; }
+.style-chooser#pagination .vs__search::placeholder { @apply text-neutral-300; }
+// v-select
+
+// datepicker
+.dp__preset_range { @apply text-primary text-center; }
+.dp__range_between { @apply text-primary; }
+.dp__range_start, .dp__range_end { @apply bg-primary; }
+.dp__action_select { @apply bg-primary hover:bg-primary-600; }
+.dp__pointer { @apply rounded; }
+.dp__calendar_header { @apply font-normal text-neutral/50; }
+.dp__month_year_wrap { @apply font-bold; }
+.dp__selection_preview { @apply text-primary; }
+.dp__action_buttons { @apply gap-4; }
+// datepicker
+
+// easy-table
+.template-table {
+  --easy-table-border: 0px;
+  --easy-table-header-background-color: #F6F8FB;
+  --easy-table-header-item-padding: 10px;
+  --easy-table-header-font-color: #B4B4B4;
+  --easy-table-header-font-size: 14px;
+  --easy-table-body-row-font-color: #444444;
+  --easy-table-body-row-font-size: 14px;
+  --easy-table-body-item-padding: 10px;
+  --easy-table-footer-font-color: #444444;
+  --easy-table-footer-font-size: 14px;	
+  --easy-table-footer-padding: 10px;
+}
+.template-table#compact {
+  --easy-table-header-item-padding: 8px;
+  --easy-table-header-font-size: 16px;
+  --easy-table-body-row-font-size: 14px;
+  --easy-table-body-item-padding: 16px;
+  --easy-table-footer-font-size: 14px;	
+  --easy-table-footer-padding: 8px;
+}
+// easy-table
+
+// transition
+// fade
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+// transition
+
+// button pagination
+.Pagination .Page.Page-active {
+  @apply text-white;
+}
+// button pagination
+
+// hide input number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+// hide input number

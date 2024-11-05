@@ -1,0 +1,38 @@
+# This is the production deployment using b-deploy 
+stages:
+  - build
+  - deploy
+
+build-development:
+  image: reg.bpbatam.go.id/devops/bdeploy
+  stage: build
+  script:
+    - b-deploy env --config=deploy/development.yaml --template=deploy/.env.template --destination=.env --service=admin-app
+    - b-deploy build --timeout=15m0s --config=deploy/development.yaml --tag=$CI_COMMIT_SHA --verbose
+  only:
+    - dev
+
+deploy-development:
+  stage: deploy
+  image: reg.bpbatam.go.id/devops/bdeploy
+  script:
+    - b-deploy deploy --env=development --timeout=10m0s --config=deploy/development.yaml --tag=$CI_COMMIT_SHA --verbose
+  only:
+    - dev
+
+build-production:
+  image: reg.bpbatam.go.id/devops/bdeploy
+  stage: build
+  script:
+    - b-deploy env --config=deploy/production.yaml --template=deploy/.env.template --destination=.env --service=admin-app
+    - b-deploy build --timeout=15m0s --config=deploy/production.yaml --tag=$CI_COMMIT_SHA --verbose
+  only:
+    - master
+
+deploy-production:
+  stage: deploy
+  image: reg.bpbatam.go.id/devops/bdeploy
+  script:
+    - b-deploy deploy --env=production --timeout=10m0s --config=deploy/production.yaml --tag=$CI_COMMIT_SHA --verbose
+  only:
+    - master

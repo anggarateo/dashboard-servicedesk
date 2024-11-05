@@ -1,0 +1,53 @@
+<template>
+  <div class="skeleton" />
+</template>
+
+<script>
+export default {
+  name: 'SKeleton',
+
+  props: {
+    contentClass: {
+      type: String,
+      default: null
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+  .skeleton {
+    @apply relative overflow-hidden bg-gray-300;
+    &:after {
+      content: '';
+      @apply absolute top-0 right-0 bottom-0 left-0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(#fff, 0) 0,
+        rgba(#fff, 0.2) 20%,
+        rgba(#fff, 0.5) 60%,
+        rgba(#fff, 0)
+      );
+      animation: shimmer 2s infinite;
+    }
+  }
+  .dark .skeleton {
+    @apply bg-gray-800;
+    &:after {
+      background-image: linear-gradient(
+        90deg,
+        rgba(17, 24, 39, 0) 0,
+        rgba(17, 24, 39, 0.2) 20%,
+        rgba(17, 24, 39, 0.5) 60%,
+        rgba(17, 24, 39, 0)
+      );
+    }
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+</style>
